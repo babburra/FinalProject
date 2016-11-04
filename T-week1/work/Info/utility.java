@@ -1,7 +1,10 @@
 package work.Info;
 
 import work.Info.element.date;
+import work.Info.element.event;
+import work.Info.element.prio;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -19,5 +22,43 @@ public class utility {
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(calendar.MONTH);
         return (new date(month,day,year));
+    }
+    public static void printCourse(course course){
+        System.out.println("name:" + course.getName());
+        System.out.println("credit:" + course.getCredit());
+        System.out.println("date:" + dateToString(course.getRegistered()));
+        System.out.println("note:" + course.getNote().getNote());
+        printEvent(course.getEvents());
+    }
+    public static void printEvent(ArrayList<event> events){
+        for(event temp: events){
+            System.out.println("event date:" + dateToString(temp.getDate()));
+            System.out.println("event name:" + temp.getName());
+            System.out.println("event info:" + temp.getInfo());
+            System.out.println("event prio:" + temp.getPrio().toString());
+        }
+    }
+    //TODO required test
+    public static String dateToString(date date){
+        String temp = date.getMonth() + "-"+date.getDay()+"-"+date.getYear();
+        return temp;
+    }
+    //TODO required test
+    public static date stringToDate(String date){
+        String[] temp = date.split("-");
+        return new date(Integer.parseInt(temp[0]),Integer.parseInt(temp[1]),
+                Integer.parseInt(temp[2]));
+    }
+    //TODO required test
+    public static event stringToEvent(String event){
+        String[] item = event.split("|");
+        date date = stringToDate(item[0]);
+        prio hi = prio.valueOf(item[3]);
+        return new event(date,item[1],item[2],hi);
+    }
+    //TODO required test
+    public static String eventToString(event event){
+        return dateToString(event.getDate())+"|"+event.getName()+"|"+
+                event.getInfo()+"|"+event.getPrio().toString();
     }
 }

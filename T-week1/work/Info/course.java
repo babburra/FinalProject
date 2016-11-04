@@ -3,17 +3,20 @@ import work.Info.element.event;
 import work.Info.element.date;
 import work.Info.element.note;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import static work.Info.utility.getToday;
 
 /**
  * Created by ting huang on 11/2/2016.
  */
 public class course {
-    private int credit;
     private String name;
-    private event[] events = null;
     private date registered;
+    private int credit;
     private note note =  new note("Empty");
+    private ArrayList<event> events;
 
     /**
      * course will have credit information, name of the course,
@@ -21,7 +24,7 @@ public class course {
      * registered, will the date that you got the course
      * note is just something that you wanna tell your self.
      */
-    public course(int credit, String name, event[] events, String note){
+    public course(int credit, String name, ArrayList<event> events, String note){
         this.credit = credit;
         this.name = name;
         if(events!=null){
@@ -32,13 +35,24 @@ public class course {
             this.note = new note(note);
         }
     }
+    public course(int credit, String name, date registered,ArrayList<event> events, String note){
+        this.credit = credit;
+        this.name = name;
+        if(events!=null){
+            this.events = events;
+        }
+        this.registered = registered;
+        if(note!=null){
+            this.note = new note(note);
+        }
+    }
     public int getCredit(){
         return credit;
     }
     public String getName(){
         return name;
     }
-    public event[] getEvents(){
+    public ArrayList<event> getEvents(){
         return events;
     }
     public date getRegistered(){
@@ -47,23 +61,22 @@ public class course {
     public note getNote(){
         return note;
     }
-
+    public void changeEvents(ArrayList<event> events){
+        this.events = events;
+    }
     @Override
     public boolean equals(Object o){
         if (o instanceof course) {
-            course temp = (course) o;
+            course copy = (course) o;
             //checking event first
-            event[] tEvent = temp.getEvents();
-            if(temp.getEvents().length != this.events.length){
-                return false;
-            }
-            for(int i=0; i<this.events.length;i++){
-                if(!(this.events[i].compareTo(tEvent[i]))){
+            ArrayList<event> tEvent = copy.getEvents();
+            for(event temp: tEvent){
+                if(! this.events.contains(temp)){
                     return false;
                 }
             }
-            return this.credit == temp.getCredit() && this.name.equals(temp.getName())
-                    && this.registered.equals(temp.getRegistered())&& this.note.equals(temp.getNote());
+            return this.credit == copy.getCredit() && this.name.equals(copy.getName())
+                    && this.registered.equals(copy.getRegistered())&& this.note.equals(copy.getNote());
         } else {
             return false;
         }
