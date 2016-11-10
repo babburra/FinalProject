@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:text="Course Name:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name_tag"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/course_name"
+        android:layout_below="@+id/name_tag"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <TextView
+        android:text="Course Credit:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/credit_tag"
+        android:layout_below="@+id/course_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/course_credit"
+        android:layout_below="@+id/credit_tag"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Course Note:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/note_tag"
+        android:layout_below="@+id/course_credit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/course_note"
+        android:layout_below="@+id/note_tag"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/course_list"
+        android:layout_below="@+id/course_note"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"></ListView>
+
+    <Button
+        android:text="Add Event"
+        android:layout_gravity="bottom"
+        android:id="@+id/add_course_event"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
