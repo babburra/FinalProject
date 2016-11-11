@@ -19,6 +19,7 @@ public class fileData {
     private Formatter save;
     private Scanner read;
 
+    // separate file
     @Test
     public void main(){
         unit unit = new unit();

@@ -79,6 +79,7 @@ public class eventActivity extends AppCompatActivity{
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String newName = String.valueOf(nameEditText.getText());
+                        //date format in database
                         String newDate = String.valueOf(dateEditText.getText());
                         String newInfo = String.valueOf(infoEditText.getText());
                         String newPrio = String.valueOf(prioEditText.getText());

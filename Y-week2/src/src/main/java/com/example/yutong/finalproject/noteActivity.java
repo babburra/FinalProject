@@ -107,6 +107,7 @@ public class noteActivity extends AppCompatActivity {
 
     /**
      * update user interface after database has changed
+     * abstract class
      */
     private void updateUI() {
         ArrayList<String> noteList = new ArrayList<>();
@@ -138,6 +139,7 @@ public class noteActivity extends AppCompatActivity {
     /**
      * delete a noteActivity after it's done, update ui
      * @param view
+     * abstract class
      */
     public void deleteNote(View view) {
         View parent = (View) view.getParent();
